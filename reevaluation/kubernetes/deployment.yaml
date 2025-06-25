@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gpu-analyzer
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gpu-analyzer
+  template:
+    metadata:
+      labels:
+        app: gpu-analyzer
+    spec:
+      containers:
+        - name: analyzer
+          image: maxireis/knative-reevaluation:latest
+          imagePullPolicy: Always
+          env:
+            - name: PROMETHEUS_URL
+              value: "http://prometheus-kube-prometheus-prometheus:9090"

@@ -1,0 +1,5 @@
+microk8s kubectl create token default
+
+microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
+
+https://127.0.0.1:10443

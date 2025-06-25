@@ -1,0 +1,28 @@
+kube-state-metrics:
+  metricLabelsAllowlist:
+    - pods=[*]
+    - deployments=[app.kubernetes.io/name,app.kubernetes.io/component,app.kubernetes.io/instance]
+prometheus:
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+  additionalServiceMonitors:
+    - name: dcgm-exporter
+      selector:
+        matchLabels:
+          app: nvidia-dcgm-exporter
+      namespaceSelector:
+        matchNames:
+          - gpu-operator-resources
+      endpoints:
+        - port: metrics
+          path: /metrics
+          interval: 30s
+
+grafana:
+  dashboards:
+    default:
+      nvidia-gpu:
+        gnetId: 12239
+        revision: 1
+        datasource: Prometheus

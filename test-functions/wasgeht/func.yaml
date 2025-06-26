@@ -1,0 +1,16 @@
+# $schema: https://raw.githubusercontent.com/knative/func/refs/tags/v0.36.0/schema/func_yaml-schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/knative/func/refs/tags/v0.36.0/schema/func_yaml-schema.json
+specVersion: 0.36.0
+name: wasgeht
+runtime: python
+registry: index.docker.io/maxireis/
+namespace: default
+created: 2025-06-20T11:34:19.475885418Z
+build:
+  builder: s2i
+deploy:
+  namespace: default
+  image: index.docker.io/maxireis/wasgeht@sha256:991fe1264d1893240a8268cd0ad181d1cc1587a3262826a2a46da9b805cce97a
+  annotations:
+    executionMode: cpu
+hallo: world

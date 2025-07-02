@@ -1,3 +1,10 @@
+# Other repos
+## Reevaluation
+https://github.com/Mareise/knative-execution-mode-reevaluation
+
+## func
+https://github.com/Mareise/func
+
 # Microk8s
 installation like in https://microk8s.io/docs/getting-started
 GPU node should not have --worker flag because we need to install gpu addon

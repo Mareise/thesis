@@ -15,18 +15,18 @@ spec:
     spec:
       containers:
         - name: analyzer
-          image: maxireis/knative-reevaluation@sha256:983eab0544275a30758e7b4ae461a737174156e33a297f72c237fe80a49c7687
+          image: maxireis/knative-reevaluation:latest
           imagePullPolicy: Always
           env:
             # Prometheus configuration
             - name: PROMETHEUS_URL
               value: "http://prometheus-kube-prometheus-prometheus:9090"
 
-            # Timing configuration
+            # Timing configuration (interval has to be significantly lower than window)
             - name: INTERVAL_SECONDS
-              value: "60"
-            - name: WINDOW_SECONDS
-              value: "30m"
+              value: "61"
+            - name: WINDOW_MINUTES
+              value: "30"
 
             # Logging configuration
             - name: LOG_LEVEL

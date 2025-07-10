@@ -10,7 +10,11 @@ build:
   builder: s2i
 deploy:
   namespace: default
-  image: index.docker.io/maxireis/gpu-function@sha256:1b879883834c34b09ba9823ea61267ca612f4553c02da2b14a11798a3c5ac2c4
+  image: index.docker.io/maxireis/gpu-function@sha256:32f49dba37cdd56d16c38552edb5c9c664a6ed3203166efc0ca72d318dfefb32
   annotations:
-    executionMode: cpu_preferred
-hallo: ""
+    executionMode: cpu
+  options:
+    resources:
+      limits:
+        nvidia.com/gpu: "0"
+hallo: world

@@ -46,4 +46,4 @@ spec:
               value: "30"
 
             - name: LONG_INTERVAL_MULTIPLIER
-              value: "51"
+              value: "50"

@@ -56,16 +56,21 @@ kubectl apply -f https://raw.githubusercontent.com/knative-extensions/monitoring
 ```
 
 ## GPU monitoring
-dcgm exporter comes with microk8s nvidia addon
+dcgm exporter comes with microk8s nvidia addon but somehow doesnt work with kubecost and prometheus
+
+so i installed it manually
+```
+cd dcgm
+helm upgrade -i dcgm dcgm-exporter \
+  --repo https://nvidia.github.io/dcgm-exporter/helm-charts \
+  -n dcgm-exporter --create-namespace \
+  -f values-dcgm.yaml
+```
 
 # GPU support
-enable nvidia microk8s addon --> brings also dcgm exporter
+enable nvidia microk8s addon
 
-exporter is scratched with our values.yaml but the creation of the grafana dashboard does not work
---> manualy create it
-
-
-# Testing and Evlauation
+# Testing and Evaluation
 ```
 kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 ```
@@ -80,6 +85,16 @@ On Host machine install locust:
 pip install locust
 ```
 ## Locustfile
+
+## Cost Estimation
+### Kubecost
+```
+helm install kubecost cost-analyzer \
+--repo https://kubecost.github.io/cost-analyzer/ \
+--namespace kubecost --create-namespace
+
+kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 9090
+```
 
 # Dynamic Reevaluation
 See https://github.com/Mareise/knative-execution-mode-reevaluation

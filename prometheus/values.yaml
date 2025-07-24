@@ -6,18 +6,6 @@ prometheus:
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
-  additionalServiceMonitors:
-    - name: dcgm-exporter
-      selector:
-        matchLabels:
-          app: nvidia-dcgm-exporter
-      namespaceSelector:
-        matchNames:
-          - gpu-operator-resources
-      endpoints:
-        - port: metrics
-          path: /metrics
-          interval: 30s
 
 grafana:
   dashboards:

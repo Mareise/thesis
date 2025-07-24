@@ -1,0 +1,172 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  annotations:
+    deprecated.daemonset.template.generation: "1"
+    nvidia.com/last-applied-hash: "199806299"
+    openshift.io/scc: hostmount-anyuid
+  creationTimestamp: "2025-07-24T10:22:48Z"
+  generation: 1
+  labels:
+    app: nvidia-device-plugin-daemonset
+    app.kubernetes.io/managed-by: gpu-operator
+    helm.sh/chart: gpu-operator-v24.6.2
+  name: nvidia-device-plugin-daemonset
+  namespace: gpu-operator-resources
+  ownerReferences:
+  - apiVersion: nvidia.com/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ClusterPolicy
+    name: cluster-policy
+    uid: 95314179-78f1-467a-b64c-8f32f535faa6
+  resourceVersion: "29606042"
+  uid: 794910a4-3ccc-4fee-8d89-b4e0c7a4a4fb
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: nvidia-device-plugin-daemonset
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nvidia-device-plugin-daemonset
+        app.kubernetes.io/managed-by: gpu-operator
+        helm.sh/chart: gpu-operator-v24.6.2
+    spec:
+      containers:
+      - args:
+        - /bin/entrypoint.sh
+        command:
+        - /bin/bash
+        - -c
+        env:
+        - name: PASS_DEVICE_SPECS
+          value: "true"
+        - name: FAIL_ON_INIT_ERROR
+          value: "true"
+        - name: DEVICE_LIST_STRATEGY
+          value: envvar
+        - name: DEVICE_ID_STRATEGY
+          value: uuid
+        - name: NVIDIA_VISIBLE_DEVICES
+          value: all
+        - name: NVIDIA_DRIVER_CAPABILITIES
+          value: all
+        - name: MPS_ROOT
+          value: /run/nvidia/mps
+        - name: MIG_STRATEGY
+          value: single
+        - name: NVIDIA_MIG_MONITOR_DEVICES
+          value: all
+        image: nvcr.io/nvidia/k8s-device-plugin:v0.16.2-ubi8
+        imagePullPolicy: IfNotPresent
+        name: nvidia-device-plugin
+        resources: {}
+        securityContext:
+          privileged: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /bin/entrypoint.sh
+          name: nvidia-device-plugin-entrypoint
+          readOnly: true
+          subPath: entrypoint.sh
+        - mountPath: /var/lib/kubelet/device-plugins
+          name: device-plugin
+        - mountPath: /run/nvidia/validations
+          name: run-nvidia-validations
+        - mountPath: /driver-root
+          mountPropagation: HostToContainer
+          name: driver-install-dir
+        - mountPath: /host
+          mountPropagation: HostToContainer
+          name: host-root
+          readOnly: true
+        - mountPath: /var/run/cdi
+          name: cdi-root
+        - mountPath: /dev/shm
+          name: mps-shm
+        - mountPath: /mps
+          name: mps-root
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - args:
+        - until [ -f /run/nvidia/validations/toolkit-ready ]; do echo waiting for
+          nvidia container stack to be setup; sleep 5; done
+        command:
+        - sh
+        - -c
+        image: nvcr.io/nvidia/cloud-native/gpu-operator-validator:v24.6.2
+        imagePullPolicy: IfNotPresent
+        name: toolkit-validation
+        resources: {}
+        securityContext:
+          privileged: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /run/nvidia/validations
+          mountPropagation: HostToContainer
+          name: run-nvidia-validations
+      nodeSelector:
+        nvidia.com/gpu.deploy.device-plugin: "true"
+      priorityClassName: system-node-critical
+      restartPolicy: Always
+      runtimeClassName: nvidia
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: nvidia-device-plugin
+      serviceAccountName: nvidia-device-plugin
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - effect: NoSchedule
+        key: nvidia.com/gpu
+        operator: Exists
+      volumes:
+      - configMap:
+          defaultMode: 448
+          name: nvidia-device-plugin-entrypoint
+        name: nvidia-device-plugin-entrypoint
+      - hostPath:
+          path: /var/lib/kubelet/device-plugins
+          type: ""
+        name: device-plugin
+      - hostPath:
+          path: /run/nvidia/validations
+          type: DirectoryOrCreate
+        name: run-nvidia-validations
+      - hostPath:
+          path: /run/nvidia/driver
+          type: DirectoryOrCreate
+        name: driver-install-dir
+      - hostPath:
+          path: /
+          type: ""
+        name: host-root
+      - hostPath:
+          path: /var/run/cdi
+          type: DirectoryOrCreate
+        name: cdi-root
+      - hostPath:
+          path: /run/nvidia/mps
+          type: DirectoryOrCreate
+        name: mps-root
+      - hostPath:
+          path: /run/nvidia/mps/shm
+          type: ""
+        name: mps-shm
+  updateStrategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
+status:
+  currentNumberScheduled: 1
+  desiredNumberScheduled: 1
+  numberAvailable: 1
+  numberMisscheduled: 0
+  numberReady: 1
+  observedGeneration: 1
+  updatedNumberScheduled: 1

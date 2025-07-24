@@ -1,0 +1,12 @@
+serviceMonitor:
+  enabled: true
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: nvidia.com/gpu.present
+          operator: In
+          values:
+          - "true"

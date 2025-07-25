@@ -20,7 +20,7 @@ microk8s enable gpu
 
 # Knative
 Install like https://knative.dev/docs/install/yaml-install/
-
+0
 i dont know but i used istio (not sure why)
 
 # Prometheus / Grafana
@@ -57,6 +57,7 @@ kubectl apply -f https://raw.githubusercontent.com/knative-extensions/monitoring
 
 ## GPU monitoring
 dcgm exporter comes with microk8s nvidia addon but somehow doesnt work with kubecost and prometheus
+https://www.ibm.com/docs/en/kubecost/self-hosted/2.x?topic=configuration-nvidia-gpu-monitoring-configurations
 
 so i installed it manually
 ```
@@ -67,8 +68,12 @@ helm upgrade -i dcgm dcgm-exporter \
   -f values-dcgm.yaml
 ```
 
+https://github.com/NVIDIA/dcgm-exporter/issues/22#issuecomment-2116538739
+Our GPU doesnt support DCP which is needed for kubecost to work with dcgm exporter
+
 # GPU support
-enable nvidia microk8s addon
+enable nvidia microk8s addon which uses nvidia gpu operator
+
 
 # Testing and Evaluation
 ```
@@ -89,11 +94,17 @@ pip install locust
 ## Cost Estimation
 ### Kubecost
 ```
+cd kube-cost
 helm install kubecost cost-analyzer \
 --repo https://kubecost.github.io/cost-analyzer/ \
---namespace kubecost --create-namespace
+--namespace kubecost --create-namespace --values values.yaml
 
 kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 9090
+```
+
+To access kubecost prometheus server:
+```
+kubectl -n kubecost port-forward svc/kubecost-prometheus-server 8080:80
 ```
 
 # Dynamic Reevaluation

@@ -7,6 +7,7 @@ url = "http://localhost:8080/matrix-multiplication"
 start_size = 0
 end_size = 20000
 step = 200
+delay = 2
 csv_filename = "matrix_multiplication-increment-1.csv"
 
 headers = {
@@ -41,4 +42,4 @@ for matrix_size in range(start_size, end_size + 1, step):
         writer.writerow(row)
 
     print(f"Sent size {matrix_size}, response time: {response_time_ms:.2f} ms")
-    time.sleep(2)
+    time.sleep(delay)

@@ -6,11 +6,3 @@ runtime: python
 registry: index.docker.io/maxireis/
 namespace: default
 created: 2025-06-19T15:04:31.881751135Z
-build:
-  builder: s2i
-deploy:
-  namespace: default
-  image: index.docker.io/maxireis/gpu-function@sha256:1b879883834c34b09ba9823ea61267ca612f4553c02da2b14a11798a3c5ac2c4
-  annotations:
-    executionMode: cpu_preferred
-hallo: ""

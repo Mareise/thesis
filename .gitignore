@@ -4,3 +4,4 @@
 # Operating system temporary files
 .DS_Store
 
+locust/__pycache__/

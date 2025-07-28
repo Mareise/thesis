@@ -2,16 +2,16 @@ from locust import HttpUser, task, between
 import random
 
 class KnativeUser(HttpUser):
-    wait_time = between(3, 3)
+    wait_time = between(2, 2)
 
     @task
     def call_matrix_multiplication(self):
         if not hasattr(self, "matrix_size"):
-            self.matrix_size = 200
+            self.matrix_size = 0
         else:
-            self.matrix_size = min(self.matrix_size + 200, 20480)
+            self.matrix_size = min(self.matrix_size + 100, 20000)
         matrix_size = self.matrix_size
-        print(f"Calling matrix multiplication with size: {matrix_size}")
+        print(f"{matrix_size}")
         self.client.post(
             "/matrix-multiplication",
             headers={

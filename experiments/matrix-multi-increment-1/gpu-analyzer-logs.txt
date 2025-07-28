@@ -1,0 +1,136 @@
+2025-07-28 10:27:50 INFO [__main__]: Starting reevaluator
+2025-07-28 10:27:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:27:50 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95:
+query_result_short_interval: None
+query_result_long_interval: None
+QueryNames.REQUEST_RATE:
+query_result_short_interval: None
+query_result_long_interval: None
+2025-07-28 10:28:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:28:50 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95:
+query_result_short_interval: None
+query_result_long_interval: None
+QueryNames.REQUEST_RATE:
+query_result_short_interval: None
+query_result_long_interval: None
+2025-07-28 10:29:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:29:50 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95:
+query_result_short_interval: 265.0000
+query_result_long_interval: 265.0000
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0208
+query_result_long_interval: 0.0208
+2025-07-28 10:30:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:30:50 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95:
+query_result_short_interval: 787.5000
+query_result_long_interval: 787.5000
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0325
+query_result_long_interval: 0.0325
+2025-07-28 10:31:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:31:50 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95:
+query_result_short_interval: 1784.3750
+query_result_long_interval: 1784.3750
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0426
+query_result_long_interval: 0.0426
+2025-07-28 10:31:50 INFO [evaluator_service]: matrix-multiplication: WARNING: Result is above upper bound (1000)
+2025-07-28 10:31:50 INFO [knative_service]: matrix-multiplication: Patched with execution mode gpu_preferred and GPU number 1
+2025-07-28 10:31:50 INFO [evaluator_service]: matrix-multiplication: Switched to GPU_PREFERRED mode
+2025-07-28 10:32:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:32:50 INFO [__main__]: Service: matrix-multiplication-00002
+QueryNames.LATENCY_P95:
+query_result_short_interval: 883.3333
+query_result_long_interval: 883.3333
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0093
+query_result_long_interval: 0.0093
+2025-07-28 10:33:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:33:50 INFO [__main__]: Service: matrix-multiplication-00002
+QueryNames.LATENCY_P95:
+query_result_short_interval: 1875.0000
+query_result_long_interval: 1875.0000
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0205
+query_result_long_interval: 0.0205
+2025-07-28 10:33:50 INFO [evaluator_service]: matrix-multiplication: WARNING: GPU is not significantly faster than CPU, switching back to CPU
+2025-07-28 10:33:50 INFO [knative_service]: matrix-multiplication: Patched with execution mode cpu_preferred and GPU number 0
+2025-07-28 10:33:50 INFO [evaluator_service]: matrix-multiplication: Switched to CPU_PREFERRED mode
+2025-07-28 10:34:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:34:50 INFO [__main__]: Service: matrix-multiplication-00003
+QueryNames.LATENCY_P95:
+query_result_short_interval: 9750.0000
+query_result_long_interval: 9750.0000
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0037
+query_result_long_interval: 0.0037
+2025-07-28 10:34:50 INFO [evaluator_service]: matrix-multiplication: WARNING: Result is above upper bound (1000)
+2025-07-28 10:34:50 INFO [knative_service]: matrix-multiplication: Patched with execution mode gpu_preferred and GPU number 1
+2025-07-28 10:34:50 INFO [evaluator_service]: matrix-multiplication: Switched to GPU_PREFERRED mode
+2025-07-28 10:35:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:35:50 INFO [__main__]: Service: matrix-multiplication-00004
+QueryNames.LATENCY_P95:
+query_result_short_interval: None
+query_result_long_interval: None
+QueryNames.REQUEST_RATE:
+query_result_short_interval: None
+query_result_long_interval: None
+2025-07-28 10:36:50 INFO [__main__]:
+-------------------------
+2025-07-28 10:36:50 INFO [__main__]: Service: matrix-multiplication-00004
+QueryNames.LATENCY_P95:
+query_result_short_interval: 2188.2075
+query_result_long_interval: 2188.1949
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0114
+query_result_long_interval: 0.0114
+2025-07-28 10:37:51 INFO [__main__]:
+-------------------------
+2025-07-28 10:37:51 INFO [__main__]: Service: matrix-multiplication-00004
+QueryNames.LATENCY_P95:
+query_result_short_interval: 4693.3147
+query_result_long_interval: 4693.3146
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0191
+query_result_long_interval: 0.0191
+2025-07-28 10:38:51 INFO [__main__]:
+-------------------------
+2025-07-28 10:38:51 INFO [__main__]: Service: matrix-multiplication-00004
+QueryNames.LATENCY_P95:
+query_result_short_interval: 4768.1126
+query_result_long_interval: 4768.1126
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0263
+query_result_long_interval: 0.0263
+2025-07-28 10:39:51 INFO [__main__]:
+-------------------------
+2025-07-28 10:39:51 INFO [__main__]: Service: matrix-multiplication-00004
+QueryNames.LATENCY_P95:
+query_result_short_interval: 4791.7925
+query_result_long_interval: 4791.7925
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0324
+query_result_long_interval: 0.0324
+2025-07-28 10:40:51 INFO [__main__]:
+-------------------------
+2025-07-28 10:40:51 INFO [__main__]: Service: matrix-multiplication-00004
+QueryNames.LATENCY_P95:
+query_result_short_interval: 4802.0322
+query_result_long_interval: 4802.0322
+QueryNames.REQUEST_RATE:
+query_result_short_interval: 0.0368
+query_result_long_interval: 0.0368

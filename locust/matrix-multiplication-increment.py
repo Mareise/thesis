@@ -1,5 +1,6 @@
 from locust import HttpUser, task, between
 import random
+from datetime import datetime
 
 class KnativeUser(HttpUser):
     wait_time = between(2, 2)
@@ -11,7 +12,7 @@ class KnativeUser(HttpUser):
         else:
             self.matrix_size = min(self.matrix_size + 100, 20000)
         matrix_size = self.matrix_size
-        print(f"{matrix_size}")
+        print(f"{datetime.now().isoformat()} - {matrix_size}")
         self.client.post(
             "/matrix-multiplication",
             headers={

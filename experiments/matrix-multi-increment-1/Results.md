@@ -25,8 +25,17 @@ Analysis Result for main.py:
     Lines Considered: []
 Set execution mode to: cpu_preferred
 ```
+# Pod lifecicle
+| Pod name                    | execution mode | creation timestamp   |
+|-----------------------------|----------------|----------------------|
+| matrix-multiplication-00001 | cpu_preferred  | 2025-07-28T10:18:44Z |
+| matrix-multiplication-00002 | gpu_preferred  | 2025-07-28T10:31:50Z |
+| matrix-multiplication-00003 | cpu_preferred  | 2025-07-28T10:33:51Z |
+| matrix-multiplication-00004 | gpu_preferred  | 2025-07-28T10:34:50Z |
 
 
 # Questions
-* why is the gpu usage so low (only one peak) and the framebuffer memory usage so high?
-* why did the GPU analyzer change back to cpu_preferred?
+1. Why is the GPU usage so low (only one peak) and the framebuffer memory usage so high?
+    
+    Könnte sein dass die Prometheus queries immer nur dann getriggert wurden, wie die GPU nicht gebraucht wurde. Wird ja immer nur kurz benutzt. Bei dem einen Peak hat es dann zusammengepasst.
+2. Why did the GPU analyzer change back to cpu_preferred?

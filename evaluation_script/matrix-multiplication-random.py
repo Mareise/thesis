@@ -1,14 +1,15 @@
 import requests
 import time
 import csv
+import random
 from datetime import datetime
 
 url = "http://localhost:8080/matrix-multiplication"
-start_size = 0
-end_size = 20000
-step = 200
-delay = 2
-csv_filename = "matrix_multiplication-increment-1.csv"
+min_size = 0
+max_size = 20000
+iterations = 500
+wait_time = 2
+csv_filename = "matrix_multiplication-random.csv"
 
 headers = {
     "Content-Type": "application/json",
@@ -19,8 +20,8 @@ with open(csv_filename, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["timestamp", "matrix_size", "response_time_ms"])
 
-# Loop over matrix sizes
-for matrix_size in range(start_size, end_size + 1, step):
+for _ in range(iterations):
+    matrix_size = random.randint(min_size, max_size)
     payload = {"matrix_size": matrix_size}
     start_time = time.time()
 
@@ -33,7 +34,6 @@ for matrix_size in range(start_size, end_size + 1, step):
         print(f"Request failed for size {matrix_size}: {e}")
         response_time_ms = -1  # Use -1 to indicate failure
 
-    # Log timestamp, size, and response time
     timestamp = datetime.utcnow().isoformat()
     row = [timestamp, matrix_size, response_time_ms]
 
@@ -42,4 +42,4 @@ for matrix_size in range(start_size, end_size + 1, step):
         writer.writerow(row)
 
     print(f"Sent size {matrix_size}, response time: {response_time_ms:.2f} ms")
-    time.sleep(delay)
+    time.sleep(wait_time)

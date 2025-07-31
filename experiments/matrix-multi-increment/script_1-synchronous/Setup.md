@@ -1,5 +1,5 @@
 # Initial Setup
-**Locust Script = matrix-multiplication-increment.py**
+**Script = evaluation_script/matrix-multiplication-increment.py**
 
 **Wait time = 2s**
 

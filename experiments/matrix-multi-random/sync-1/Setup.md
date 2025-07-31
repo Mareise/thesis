@@ -1,15 +1,13 @@
 # Initial Setup
-**Script = evaluation_script/matrix-multiplication.py**
+**Script = evaluation_script/matrix-multiplication-random.py**
 
 **Wait time = 2s**
 
-**Start Size = 0**
+**Min Size = 0**
 
-**Increment = 100**
+**Max Size = 20000**
 
-**End Size = 20000**
-
-**Timeframe = 10m**
+**Number of iterations = 500**
 
 ## GPU Analyzer Params
 ```yaml

@@ -11,7 +11,7 @@ headers = {
     "Content-Type": "application/json",
     "Host": "matrix-multiplication.default.128.131.172.200.sslip.io"
 }
-csv_filename = "matrix_benchmark.csv"
+csv_filename = "../matrix_benchmark.csv"
 start_size = 0
 end_size = 20000
 step = 100

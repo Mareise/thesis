@@ -5,8 +5,9 @@ https://github.com/Mareise/knative-execution-mode-reevaluation
 ## func
 https://github.com/Mareise/func
 
-# Knative Deploy
+# Knative
 ```
+func create -l python name-of-function
 func deploy --registry index.docker.io/maxireis/ -b=s2i -v --execution-mode auto
 
 ```

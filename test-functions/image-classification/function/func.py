@@ -59,8 +59,7 @@ class Function:
                 output = model(input_tensor)
                 pred = torch.argmax(output, dim=1).item()
 
-            # Return prediction as JSON
-            result = json.dumps({"class_index": pred}).encode("utf-8")
+            print(f"Predicted class index: {pred}")
 
             await send({
                 "type": "http.response.start",
@@ -70,11 +69,11 @@ class Function:
                 ],
             })
             await send({
-                "type": "http.response.body",
-                "body": {
-                    "device": str(device),
-                    "result": result,
-                }
+                'type': 'http.response.body',
+                'body': json.dumps({
+                        "class_index": pred,
+                        "device": str(device),
+                    }).encode('utf-8')
             })
 
         except Exception as e:

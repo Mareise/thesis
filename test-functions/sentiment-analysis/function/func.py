@@ -83,6 +83,7 @@ class Function:
         await send({
             'type': 'http.response.body',
             'body': json.dumps({
+                "device": str(device),
                 "input_length": len(inputs["input_ids"][0]),
                 "prediction": {
                     "label": f"{predicted_class.item()} star(s)",

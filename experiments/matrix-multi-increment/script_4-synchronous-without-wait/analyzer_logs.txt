@@ -1,0 +1,73 @@
+2025-08-13 09:29:04 INFO [__main__]: Starting reevaluator
+2025-08-13 09:29:04 INFO [__main__]:
+-------------------------
+2025-08-13 09:29:04 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95_long: N/A
+QueryNames.LATENCY_P95_short: N/A
+QueryNames.REQUEST_RATE_long: N/A
+QueryNames.REQUEST_RATE_short: N/A
+2025-08-13 09:29:04 INFO [evaluator_service]: matrix-multiplication: The request rate is too low to make a decision based on latency alone.
+2025-08-13 09:29:34 INFO [__main__]:
+-------------------------
+2025-08-13 09:29:34 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95_long: N/A
+QueryNames.LATENCY_P95_short: N/A
+QueryNames.REQUEST_RATE_long: N/A
+QueryNames.REQUEST_RATE_short: N/A
+2025-08-13 09:29:34 INFO [evaluator_service]: matrix-multiplication: The request rate is too low to make a decision based on latency alone.
+2025-08-13 09:30:04 INFO [__main__]:
+-------------------------
+2025-08-13 09:30:04 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95_long: N/A
+QueryNames.LATENCY_P95_short: N/A
+QueryNames.REQUEST_RATE_long: N/A
+QueryNames.REQUEST_RATE_short: N/A
+2025-08-13 09:30:04 INFO [evaluator_service]: matrix-multiplication: The request rate is too low to make a decision based on latency alone.
+2025-08-13 09:30:34 INFO [__main__]:
+-------------------------
+2025-08-13 09:30:34 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95_long: N/A
+QueryNames.LATENCY_P95_short: N/A
+QueryNames.REQUEST_RATE_long: N/A
+QueryNames.REQUEST_RATE_short: N/A
+2025-08-13 09:30:34 INFO [evaluator_service]: matrix-multiplication: The request rate is too low to make a decision based on latency alone.
+2025-08-13 09:31:04 INFO [__main__]:
+-------------------------
+2025-08-13 09:31:04 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95_long: N/A
+QueryNames.LATENCY_P95_short: N/A
+QueryNames.REQUEST_RATE_long: N/A
+QueryNames.REQUEST_RATE_short: N/A
+2025-08-13 09:31:04 INFO [evaluator_service]: matrix-multiplication: The request rate is too low to make a decision based on latency alone.
+2025-08-13 09:31:34 INFO [__main__]:
+-------------------------
+2025-08-13 09:31:34 INFO [__main__]: Service: matrix-multiplication-00001
+QueryNames.LATENCY_P95_long: 4325.0000
+QueryNames.LATENCY_P95_short: 4325.0000
+QueryNames.REQUEST_RATE_long: 0.0215
+QueryNames.REQUEST_RATE_short: 0.6000
+2025-08-13 09:31:34 INFO [evaluator_service]: matrix-multiplication: WARNING: Result is above upper bound (1000)
+2025-08-13 09:31:34 INFO [knative_service]: matrix-multiplication: Patched with execution mode gpu_preferred and GPU number 1
+2025-08-13 09:31:34 INFO [evaluator_service]: matrix-multiplication: Switched to GPU_PREFERRED mode
+2025-08-13 09:32:04 INFO [__main__]:
+-------------------------
+2025-08-13 09:32:04 INFO [__main__]: Service: matrix-multiplication-00002
+QueryNames.LATENCY_P95_long: N/A
+QueryNames.LATENCY_P95_short: N/A
+QueryNames.REQUEST_RATE_long: N/A
+QueryNames.REQUEST_RATE_short: N/A
+2025-08-13 09:32:04 INFO [evaluator_service]: matrix-multiplication: The request rate is too low to make a decision based on latency alone.
+2025-08-13 09:32:34 INFO [__main__]:
+-------------------------
+2025-08-13 09:32:34 INFO [__main__]: Service: matrix-multiplication-00002
+QueryNames.LATENCY_P95_long: 3422.6262
+QueryNames.LATENCY_P95_short: 3422.6354
+QueryNames.REQUEST_RATE_long: 0.0193
+QueryNames.REQUEST_RATE_short: 0.5782
+2025-08-13 09:33:04 INFO [__main__]:
+-------------------------
+2025-08-13 09:33:04 INFO [__main__]: Service: matrix-multiplication-00002
+QueryNames.LATENCY_P95_long: 4626.5706
+QueryNames.LATENCY_P95_short: 4626.5709
+QueryNames.REQUEST_RATE_long: 0.0249
+QueryNames.REQUEST_RATE_short: 0.4000

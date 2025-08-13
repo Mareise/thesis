@@ -14,7 +14,7 @@
   kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
   kubectl port-forward -n default svc/prometheus-grafana 3000:80
     ```
-* open grafana and locust
+* open grafana
 * redeploy GPU analyzer
     ```
     kubectl apply -f deployment.yaml

@@ -3,16 +3,16 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # Load the CSV
-file_path = 'sentiment-analysis-1.csv'
+file_path = '../matrix_multiplication-increment-4.csv'
 df = pd.read_csv(file_path)
 
 # Convert timestamp column to datetime
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 
 # Target timestamp to highlight
-# event_markers = [
-#     (pd.to_datetime("2025-07-31T09:31:40.547683"), "Change to GPU"),
-# ]
+event_markers = [
+    (pd.to_datetime("2025-08-13T09:31:38.379616"), "Change to GPU"),
+]
 
 
 # Plotting
@@ -25,13 +25,13 @@ ax1.set_ylabel('Response Time (ms)', color='tab:blue')
 ax1.tick_params(axis='y', labelcolor='tab:blue')
 ax1.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
 
-# # Right y-axis: matrix_size
-# ax2 = ax1.twinx()
-# ax2.plot(df['timestamp'], df['matrix_size'], color='tab:orange', label='Matrix Size')
-# ax2.set_ylabel('Matrix Size', color='tab:orange')
-# ax2.tick_params(axis='y', labelcolor='tab:orange')
+# Right y-axis: matrix_size
+ax2 = ax1.twinx()
+ax2.plot(df['timestamp'], df['matrix_size'], color='tab:orange', label='Matrix Size')
+ax2.set_ylabel('Matrix Size', color='tab:orange')
+ax2.tick_params(axis='y', labelcolor='tab:orange')
 
-# Add vertical lines and labels for each event
+# # Add vertical lines and labels for each event
 # for ts, label in event_markers:
 #     ax1.axvline(x=ts, color='red', linestyle='--', linewidth=2)
 #     ax1.text(ts, ax1.get_ylim()[1] * 0.95, label,
@@ -40,7 +40,7 @@ ax1.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
 
 # Final touches
 fig.autofmt_xdate()
-plt.title("Matrix Multiplication (random): Response Time")
+# plt.title("Matrix Multiplication (increment): Response Time vs Matrix Size")
 fig.tight_layout()
 
 plt.savefig("plot.png", dpi=300, bbox_inches='tight')

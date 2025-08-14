@@ -3,20 +3,17 @@ import logging
 import json
 import torch
 import time
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import pipeline
 
-
-model_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
-
-tokenizer = AutoTokenizer.from_pretrained(model_id)
-model = AutoModelForCausalLM.from_pretrained(
-    model_id,
-    torch_dtype=torch.float16, # if torch.cuda.is_available() else torch.float32,
-    device_map="auto" if torch.cuda.is_available() else None,
-)
-model.eval()
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+pipe = pipeline(
+    "text-generation",
+    model="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    torch_dtype=torch.bfloat16,
+    device_map="auto" if torch.cuda.is_available() else None
+)
+
 
 def new():
     return Function()
@@ -36,25 +33,18 @@ class Function:
 
             data = json.loads(body.decode())
 
-            prompt = data.get("prompt", None)
-            if not prompt:
+            input = data.get("prompt", None)
+            if not input:
                 raise ValueError("Missing 'prompt'")
 
-            # Tokenize input
-            inputs = tokenizer(prompt, return_tensors="pt").to(device)
+            messages = [{"role": "user", "content": input},
+]
 
             # Run inference and measure time
             start = time.perf_counter()
-            with torch.no_grad():
-                outputs = model.generate(
-                    **inputs,
-                    max_new_tokens=100,
-                    do_sample=True,
-                    temperature=0.7,
-                )
+            prompt = pipe.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+            outputs = pipe(prompt, max_new_tokens=256, do_sample=True, temperature=0.7, top_k=50, top_p=0.95)
             duration = time.perf_counter() - start
-
-            response_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
             await send({
                 "type": "http.response.start",
@@ -64,7 +54,7 @@ class Function:
             await send({
                 "type": "http.response.body",
                 "body": json.dumps({
-                    "output": response_text,
+                    "output": outputs[0]["generated_text"],
                     "device": str(device),
                     "inference_time_sec": round(duration, 2)
                 }).encode("utf-8")

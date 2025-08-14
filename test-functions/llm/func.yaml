@@ -6,11 +6,4 @@ runtime: python
 registry: index.docker.io/maxireis/
 namespace: default
 created: 2025-08-06T09:05:13.389681064Z
-build:
-  builder: s2i
-deploy:
-  namespace: default
-  image: index.docker.io/maxireis/llm@sha256:947d4a84f105f14305bad9fda5727a053f48d0a8debfd2c827cf73cd77938d0e
-  annotations:
-    executionMode: cpu_preferred
 hallo: world

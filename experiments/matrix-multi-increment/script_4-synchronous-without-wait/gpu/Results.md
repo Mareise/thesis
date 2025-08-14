@@ -31,3 +31,7 @@ Set execution mode to: gpu
 | matrix-multiplication-00001 | gpu  | 2025-08-13T09:58:38.375866 |
 
 end: 2025-08-13T10:00:37.211328
+
+Time = 10:00:37 - 09:58:38 = 119s
+
+Cost = 119 * 3.5 = 416.5

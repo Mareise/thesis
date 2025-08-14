@@ -25,15 +25,5 @@ Analysis Result for main.py:
     Lines Considered: []
 Set execution mode to: cpu_preferred
 ```
-# Pod lifecicle
-| Pod name                    | execution mode | creation timestamp   |
-|-----------------------------|----------------|----------------------|
-| matrix-multiplication-00001 | cpu_preferred  | 2025-08-13T09:30:35Z |
-| matrix-multiplication-00002 | gpu_preferred  | 2025-08-13T09:31:34Z |
-
-end: 2025-08-13T09:33:11Z
-
-
-# Questions - Observations
-1. Irgendwie dauert es beim zweiten auf GPU wechseln länger
-2. Matrix size linie ist nicht linear, weil die responses nicht immer gleich lang sind (synchronous response)
+# Cost
+521s -> 521

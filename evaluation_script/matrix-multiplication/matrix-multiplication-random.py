@@ -9,7 +9,7 @@ min_size = 0
 max_size = 20000
 iterations = 500
 wait_time = 2
-csv_filename = "../matrix_multiplication-random.csv"
+csv_filename = "../visualization/matrix_multiplication-random.csv"
 
 headers = {
     "Content-Type": "application/json",

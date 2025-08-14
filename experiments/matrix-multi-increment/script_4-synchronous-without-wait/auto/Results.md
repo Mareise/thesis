@@ -33,3 +33,7 @@ Set execution mode to: cpu_preferred
 
 end: 2025-08-13T09:33:11Z
 
+CPU time = 09:31:34Z - 09:30:35Z = 59s
+GPU time = 09:33:11Z - 09:31:34Z = 97s
+
+Cost = 59 * 1 + 97 * 3.5 = 398.5

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # Load the CSV
-file_path = 'visualization/matrix_multiplication-random.csv'
+file_path = 'visualization/data.csv'
 df = pd.read_csv(file_path)
 
 # Convert timestamp column to datetime
@@ -11,7 +11,7 @@ df['timestamp'] = pd.to_datetime(df['timestamp'])
 
 # Target timestamp to highlight
 event_markers = [
-    (pd.to_datetime("2025-07-31T09:31:47.414855"), "Change to GPU"),
+    (pd.to_datetime("2025-08-14T13:29:16.361591"), "Change to GPU"),
 ]
 
 

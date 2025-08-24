@@ -3,7 +3,6 @@ import logging
 import time
 import json
 
-
 def new():
     return Function()
 
@@ -25,7 +24,7 @@ class Function:
             payload = {}
 
 
-        wait_time = int(payload.get("wait_time", 1000))
+        wait_time = int(payload.get("wait_time", 2))
         time.sleep(wait_time)
 
         await send({

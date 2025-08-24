@@ -27,3 +27,5 @@ Set execution mode to: cpu_preferred
 ```
 # Cost
 521s -> 521
+
+Cost = 521 * 0.000038 = ca. 0.0198

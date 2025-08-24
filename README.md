@@ -8,7 +8,7 @@ https://github.com/Mareise/func
 # Knative
 ```
 func create -l python name-of-function
-func deploy --registry index.docker.io/maxireis/ -b=s2i -v --execution-mode auto
+func deploy --registry index.docker.io/maxireis/ -b=s2i -v --deployment-mode auto
 
 ```
 
@@ -84,13 +84,6 @@ Now it can be accessed via:
 ```
 curl -H "Host: wasgeht.default.128.131.172.200.sslip.io" http://localhost:8080
 ```
-
-## Locust
-On Host machine install locust:
-```
-pip install locust
-```
-## Locustfile
 
 ## Cost Estimation
 ### Kubecost

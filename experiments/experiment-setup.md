@@ -5,7 +5,7 @@
 * make sure that func.yaml only has specVersion, name, runtime, created, (namespace, registry)
 * deployment of function with desired execution mode
   ```
-  func deploy --registry index.docker.io/maxireis/ -b=s2i -v --execution-mode auto
+  func deploy --registry index.docker.io/maxireis/ -b=s2i -v --deployment-mode auto
     ```
 * write down GPU analyzer parameters
 * configure testing script
@@ -23,6 +23,5 @@
 
 # After Experiment
 * save GPU analyzer logs
-* save locust results (plus images)
-* save grafana cpu and gpu data
+* save results (plus images)
 * Write down pod lifecycle

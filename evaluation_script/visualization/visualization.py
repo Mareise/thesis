@@ -11,7 +11,8 @@ df['timestamp'] = pd.to_datetime(df['timestamp'])
 
 # Target timestamp to highlight
 event_markers = [
-    (pd.to_datetime("2025-08-14T13:29:16.361591"), "Change to GPU"),
+    (pd.to_datetime("2025-08-15T10:34:09.218090"), "Change to GPU"),
+    (pd.to_datetime("2025-08-15T10:36:10.508739"), "Change to CPU"),
 ]
 
 

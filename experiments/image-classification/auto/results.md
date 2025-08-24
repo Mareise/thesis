@@ -5,3 +5,6 @@ cpu_preferred
 only on cpu
 
 average response time = 192ms
+
+Time = ~94s
+Cost = 94 * 0.000038 = ~0.003572

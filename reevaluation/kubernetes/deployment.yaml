@@ -37,8 +37,8 @@ spec:
             - name: LOW_REQUEST_RATE_WINDOW_MINUTES # the window in which we consider the request rate to be low
               value: "30"
 
-            - name: LONG_INTERVAL_MULTIPLIER # Multiplier for a longer latency metrics interval
-              value: "50"
+            - name: LONG_INTERVAL_WINDOW_MINUTES # The window for long interval metrics (used for storing the value in the knative service)
+              value: "500"
 
             # Logging configuration
             - name: LOG_LEVEL
@@ -52,8 +52,8 @@ spec:
             - name: THRESHOLD_LATENCY_PERFORMANCE_CHANGE_GAP # Gap in latency to consider a performance change
               value: "200"
 
-            - name: THRESHOLD_REQUEST_RATE_COLD_START_MITIGATION # When request rate is below this, we dont take actions
-              value: "0.2"
+            - name: THRESHOLD_REQUEST_RATE_COLD_START_MITIGATION # When request rate in the last minute is below this, we dont take actions
+              value: "0.1"
 
             - name: THRESHOLD_REQUEST_RATE_LOWER_BOUND # Lower bound for request rate to consider switching to CPU
-              value: "0.01"
+              value: "0.1"

@@ -1,3 +1,6 @@
+# Thesis Repository
+This repository includes all scripts and configurations for the thesis experiments as well as all testfunctions used in the experiments.
+
 # Other repos
 ## Reevaluation
 https://github.com/Mareise/knative-execution-mode-reevaluation

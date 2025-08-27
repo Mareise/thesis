@@ -24,8 +24,6 @@ microk8s enable gpu
 
 # Knative
 Install like https://knative.dev/docs/install/yaml-install/
-0
-i dont know but i used istio (not sure why)
 
 # Prometheus / Grafana
 ## Prerequisits
@@ -86,22 +84,6 @@ kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 Now it can be accessed via:
 ```
 curl -H "Host: wasgeht.default.128.131.172.200.sslip.io" http://localhost:8080
-```
-
-## Cost Estimation
-### Kubecost
-```
-cd kube-cost
-helm install kubecost cost-analyzer \
---repo https://kubecost.github.io/cost-analyzer/ \
---namespace kubecost --create-namespace --values values.yaml
-
-kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 9090
-```
-
-To access kubecost prometheus server:
-```
-kubectl -n kubecost port-forward svc/kubecost-prometheus-server 8080:80
 ```
 
 # Dynamic Reevaluation

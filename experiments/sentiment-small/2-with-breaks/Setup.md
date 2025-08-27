@@ -18,8 +18,8 @@ loop(200)
 - name: LOW_REQUEST_RATE_WINDOW_MINUTES # the window in which we consider the request rate to be low
   value: "30"
 
-- name: LONG_INTERVAL_MULTIPLIER # Multiplier for a longer latency metrics interval
-  value: "50"
+- name: LONG_INTERVAL_WINDOW_MINUTES # The window for long interval metrics (used for storing the value in the knative service)
+  value: "500"
 
 # Logging configuration
 - name: LOG_LEVEL

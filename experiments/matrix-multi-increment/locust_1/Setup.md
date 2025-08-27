@@ -36,6 +36,6 @@
 - name: LOW_REQUEST_RATE_SWITCHING_MINUTES
   value: "30"
 
-- name: LONG_INTERVAL_MULTIPLIER
-  value: "50"
+- name: LONG_INTERVAL_WINDOW_MINUTES
+  value: "500"
 ```

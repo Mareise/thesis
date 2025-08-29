@@ -8,7 +8,7 @@ start_size = 0
 end_size = 20000
 increment = 200
 wait_time = 0
-csv_filename = "../matrix_multiplication-increment-4.csv"
+csv_filename = "../matrix_multiplication-increment-4.1.csv"
 
 headers = {
     "Content-Type": "application/json",

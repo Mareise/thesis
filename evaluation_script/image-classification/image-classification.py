@@ -7,7 +7,7 @@ from datetime import datetime
 url = "http://localhost:8080/image-classification"
 iterations = 500
 wait_time = 0
-csv_filename = "../image-classification-1.csv"
+csv_filename = "../image-classification-gpu.csv"
 
 headers = {
     "Content-Type": "application/json",

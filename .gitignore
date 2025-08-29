@@ -5,3 +5,5 @@
 .DS_Store
 
 locust/__pycache__/
+evaluation_script/.venv
+evaluation_script/.idea

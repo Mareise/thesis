@@ -7,7 +7,7 @@ from datetime import datetime
 url = "http://localhost:8080/llm"
 iterations = 500
 wait_time = 0
-csv_filename = "../llm-gpu.csv"
+csv_filename = "../llm-auto.csv"
 
 headers = {
     "Content-Type": "application/json",
@@ -20,6 +20,9 @@ with open(csv_filename, mode='w', newline='') as file:
 
 with open('payload.json', 'r') as file:
     payload = json.load(file)
+
+# print current time
+print(f"Starting at {datetime.utcnow().isoformat()} UTC")
 
 # Loop over matrix sizes
 for _ in range(iterations):

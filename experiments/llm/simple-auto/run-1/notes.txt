@@ -1,0 +1,3 @@
+Starting at 2025-09-03T09:25:19.058806 UTC
+
+Changed to GPU: 2025-09-03 09:26:41

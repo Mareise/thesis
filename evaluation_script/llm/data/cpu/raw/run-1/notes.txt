@@ -1,0 +1,3 @@
+Starting at 2025-09-03T13:23:15.230213 UTC
+
+Why is memory going down afer couple of minutes?

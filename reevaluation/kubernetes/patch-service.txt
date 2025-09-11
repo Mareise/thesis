@@ -1,0 +1,35 @@
+kubectl patch kservice llm \
+  -n default \
+  --type=merge \
+  -p '{
+    "metadata": {
+      "annotations": {
+        "gpuLatency": "0",
+        "cpuLatency": "0",
+        "lastExecutionModeUpdateTime": "2025-06-30T08:43:14.984749+00:00",
+        "executionMode": "cpu"
+      }
+    },
+    "spec": {
+      "template": {
+        "metadata": {
+          "annotations": {
+            "executionMode": "cpu",
+            "lastExecutionModeUpdateTime": "2025-06-30T08:43:14.984749+00:00"
+          }
+        },
+        "spec": {
+          "containers": [
+            {
+              "image": "index.docker.io/maxireis/llm@sha256:376b63da5ca14a33a26cf20f572098c03380237656281aa3eeb386d15b4a3cc1",
+              "resources": {
+                "limits": {
+                  "nvidia.com/gpu": "0"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }'

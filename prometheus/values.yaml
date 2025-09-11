@@ -6,6 +6,7 @@ prometheus:
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
+    scrapeInterval: 1s
 
 grafana:
   dashboards:

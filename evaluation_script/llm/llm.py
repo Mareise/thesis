@@ -17,7 +17,6 @@ headers = {
 with open('payload.json', 'r') as file:
     payload = json.load(file)
 
-# print start time
 
 for run in range(1, runs + 1):
     print(f"Run {run}: Starting at {datetime.utcnow().isoformat()} UTC")

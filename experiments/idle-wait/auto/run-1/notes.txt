@@ -1,0 +1,6 @@
+Run 1: Starting at 2025-09-13T12:56:19.623568 Local Time
+
+change to gpu: 2025-09-13 12:57:23
+
+change to cpu: 2025-09-13 12:59:23
+

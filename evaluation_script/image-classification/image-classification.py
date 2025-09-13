@@ -57,4 +57,4 @@ for run in range(1, runs + 1):
 
     time.sleep(wait_time) # wait so that the pod can scale down
 
-print(f"\nFinished all {runs} runs at {datetime.now().isoformat()} UTC")
+print(f"\nFinished all {runs} runs at {datetime.now().isoformat()} Local Time")

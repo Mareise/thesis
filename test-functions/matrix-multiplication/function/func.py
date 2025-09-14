@@ -3,6 +3,7 @@ import json
 import logging
 import numpy as np
 import torch
+import subprocess
 
 
 def new():
@@ -64,6 +65,7 @@ class Function:
             'body': json.dumps({
                     "result_shape": result.shape,
                     "matrix_size": size,
+                    "gpu": use_gpu,
                 }).encode('utf-8')
         })
 

@@ -2,9 +2,19 @@
 import logging
 import time
 import json
+import subprocess
 
 def new():
     return Function()
+
+def cuda_available():
+    try:
+        result = subprocess.run(
+            ["nvidia-smi"], stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        )
+        return result.returncode == 0
+    except FileNotFoundError:
+        return False
 
 
 class Function:
@@ -36,5 +46,7 @@ class Function:
         })
         await send({
             'type': 'http.response.body',
-            'body': 'OK'.encode(),
+            'body': json.dumps({
+                    "gpu": cuda_available(),
+                }).encode('utf-8')
         })

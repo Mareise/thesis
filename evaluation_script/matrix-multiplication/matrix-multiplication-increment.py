@@ -8,7 +8,7 @@ start_size = 0
 end_size = 20000
 increment = 200
 wait_time = 100
-runs = 5  # number of times to repeat the experiment
+runs = 1  # number of times to repeat the experiment
 
 headers = {
     "Content-Type": "application/json",
